@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { PostitemComponent } from '../../components/homepage/postitem/postitem.component';
 import { MatDividerModule } from '@angular/material/divider';
+import { PostitemComponent } from '../../components/postitem/postitem.component';
 
 @Component({
   selector: 'app-homepage',

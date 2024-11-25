@@ -1,6 +1,6 @@
 package com.example.latriumback.dto.post;
 
-import com.example.latriumback.dto.UserDTO;
+import com.example.latriumback.dto.user.UserDTO;
 import com.example.latriumback.entity.Post;
 
 import java.util.Date;

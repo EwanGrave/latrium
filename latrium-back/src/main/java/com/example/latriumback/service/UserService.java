@@ -1,6 +1,6 @@
 package com.example.latriumback.service;
 
-import com.example.latriumback.dto.UserDTO;
+import com.example.latriumback.dto.user.UserDTO;
 import com.example.latriumback.entity.User;
 import com.example.latriumback.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;

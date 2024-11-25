@@ -1,4 +1,4 @@
-package com.example.latriumback.dto;
+package com.example.latriumback.dto.user;
 
 import com.example.latriumback.entity.User;
 import com.example.latriumback.utils.UserRole;

@@ -1,6 +1,6 @@
 package com.example.latriumback.controller;
 
-import com.example.latriumback.dto.PostDTO;
+import com.example.latriumback.dto.post.PostDTO;
 import com.example.latriumback.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

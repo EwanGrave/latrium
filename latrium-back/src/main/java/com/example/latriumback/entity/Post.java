@@ -56,4 +56,16 @@ public class Post {
     public Long getIdPost() {
         return idPost;
     }
+
+    public User getUser() {
+        return user;
+    }
+
+    public Board getBoard() {
+        return board;
+    }
+
+    public Set<Comment> getComments() {
+        return comments;
+    }
 }

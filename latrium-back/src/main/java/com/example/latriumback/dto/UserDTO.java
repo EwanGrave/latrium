@@ -1,5 +1,6 @@
 package com.example.latriumback.dto;
 
+import com.example.latriumback.entity.User;
 import com.example.latriumback.utils.UserRole;
 
 public class UserDTO {
@@ -9,6 +10,10 @@ public class UserDTO {
     public UserDTO(String username, UserRole role) {
         this.username = username;
         this.role = role;
+    }
+
+    public static UserDTO convertToDTO(User user) {
+        return new UserDTO(user.getUsername(), user.getRole());
     }
 
     public String getUsername() {

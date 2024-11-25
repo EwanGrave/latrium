@@ -20,11 +20,6 @@ public class PostService {
         return posts.stream().map(PostDTO::convertToDTO).collect(Collectors.toList());
     }
 
-    public List<PostDTO> findByBoardName(String name) {
-        List<Post> posts = postRepository.findByBoardName(name);
-        return posts.stream().map(PostDTO::convertToDTO).collect(Collectors.toList());
-    }
-
     public PostWithCommentsDTO findPostById(Long id) {
         Post post = postRepository.findPostByIdPost(id);
         return PostWithCommentsDTO.convertToDTO(post);

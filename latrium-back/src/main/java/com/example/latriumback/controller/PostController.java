@@ -20,11 +20,6 @@ public class PostController {
         return postService.findAll();
     }
 
-    @GetMapping("/api/posts/board/{boardName}")
-    public List<PostDTO> getPostsByBoardName(@PathVariable String boardName) {
-        return postService.findByBoardName(boardName);
-    }
-
     @GetMapping("/api/posts/{postId}")
     public PostWithCommentsDTO getPostById(@PathVariable Long postId) {
         return postService.findPostById(postId);

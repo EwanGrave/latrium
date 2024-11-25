@@ -1,19 +1,12 @@
 package com.example.latriumback.dto.post;
 
-import com.example.latriumback.dto.BoardDTO;
+import com.example.latriumback.dto.board.BoardDTO;
 import com.example.latriumback.dto.UserDTO;
 import com.example.latriumback.entity.Post;
 
 import java.util.Date;
 
-public class PostDTO {
-    private Long idPost;
-    private String score;
-    private String title;
-    private String content;
-    private Date createdAt;
-    private Date updatedAt;
-    private UserDTO user;
+public class PostDTO extends PostWithoutBoardDTO {
     private BoardDTO board;
 
     public PostDTO(
@@ -24,15 +17,9 @@ public class PostDTO {
             Date createdAt,
             Date updatedAt,
             UserDTO user,
-            BoardDTO board)
-    {
-        this.idPost = idPost;
-        this.score = score;
-        this.title = title;
-        this.content = content;
-        this.createdAt = createdAt;
-        this.updatedAt = updatedAt;
-        this.user = user;
+            BoardDTO board
+    ) {
+        super(idPost, score, title, content, createdAt, updatedAt, user);
         this.board = board;
     }
 
@@ -49,35 +36,7 @@ public class PostDTO {
         );
     }
 
-    public String getScore() {
-        return score;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public Date getCreatedAt() {
-        return createdAt;
-    }
-
-    public Date getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public UserDTO getUser() {
-        return user;
-    }
-
     public BoardDTO getBoard() {
         return board;
-    }
-
-    public Long getIdPost() {
-        return idPost;
     }
 }

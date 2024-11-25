@@ -51,4 +51,16 @@ public class Board {
     public String getName() {
         return name;
     }
+
+    public Set<Post> getPosts() {
+        return posts;
+    }
+
+    public Set<User> getUsers() {
+        return users;
+    }
+
+    public Set<Theme> getThemes() {
+        return themes;
+    }
 }

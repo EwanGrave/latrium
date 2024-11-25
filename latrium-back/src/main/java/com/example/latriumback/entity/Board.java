@@ -11,6 +11,7 @@ public class Board {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_board")
     private Long idBoard;
+    @Column(unique=true)
     private String name;
     private String description;
     @Column(name = "created_at")

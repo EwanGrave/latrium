@@ -18,4 +18,9 @@ public class PostService {
         List<Post> posts = postRepository.findAll();
         return posts.stream().map(PostDTO::convertToDTO).collect(Collectors.toList());
     }
+
+    public List<PostDTO> findByBoardName(String name) {
+        List<Post> posts = postRepository.findByBoardName(name);
+        return posts.stream().map(PostDTO::convertToDTO).collect(Collectors.toList());
+    }
 }

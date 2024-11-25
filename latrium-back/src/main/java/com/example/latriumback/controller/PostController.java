@@ -1,6 +1,7 @@
 package com.example.latriumback.controller;
 
 import com.example.latriumback.dto.post.PostDTO;
+import com.example.latriumback.dto.post.PostWithCommentsDTO;
 import com.example.latriumback.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,8 +20,13 @@ public class PostController {
         return postService.findAll();
     }
 
-    @GetMapping("/api/posts/{boardName}")
+    @GetMapping("/api/posts/board/{boardName}")
     public List<PostDTO> getPostsByBoardName(@PathVariable String boardName) {
         return postService.findByBoardName(boardName);
+    }
+
+    @GetMapping("/api/posts/{postId}")
+    public PostWithCommentsDTO getPostById(@PathVariable Long postId) {
+        return postService.findPostById(postId);
     }
 }

@@ -15,4 +15,6 @@ public interface PostRepository extends CrudRepository<Post, Long> {
 
     @Query("select p from Post p inner join p.board b where b.name = :boardName")
     List<Post> findByBoardName(@Param("boardName") String boardName);
+
+    Post findPostByIdPost(Long id);
 }

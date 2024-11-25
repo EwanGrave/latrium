@@ -1,6 +1,5 @@
 package com.example.latriumback.dto.post;
 
-
 import com.example.latriumback.dto.BoardDTO;
 import com.example.latriumback.dto.UserDTO;
 import com.example.latriumback.entity.Post;
@@ -17,7 +16,16 @@ public class PostDTO {
     private UserDTO user;
     private BoardDTO board;
 
-    public PostDTO(Long idPost, String score, String title, String content, Date createdAt, Date updatedAt, UserDTO user, BoardDTO board) {
+    public PostDTO(
+            Long idPost,
+            String score,
+            String title,
+            String content,
+            Date createdAt,
+            Date updatedAt,
+            UserDTO user,
+            BoardDTO board)
+    {
         this.idPost = idPost;
         this.score = score;
         this.title = title;

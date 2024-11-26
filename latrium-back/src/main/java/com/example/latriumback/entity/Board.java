@@ -36,6 +36,12 @@ public class Board {
 
     public Board() {}
 
+    public Board(Date createdAt, String description, String name) {
+        this.createdAt = createdAt;
+        this.description = description;
+        this.name = name;
+    }
+
     public Long getIdBoard() {
         return idBoard;
     }

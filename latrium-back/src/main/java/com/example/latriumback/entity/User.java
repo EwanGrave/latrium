@@ -28,6 +28,11 @@ public class User {
 
     public User() {}
 
+    public User(String username, UserRole role) {
+        this.username = username;
+        this.role = role;
+    }
+
     public String getUsername() {
         return username;
     }

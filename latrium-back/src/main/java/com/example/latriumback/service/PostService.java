@@ -24,4 +24,8 @@ public class PostService {
         Post post = postRepository.findPostByIdPost(id);
         return PostWithCommentsDTO.convertToDTO(post);
     }
+
+    public void savePost(PostDTO postDTO) {
+        postRepository.save(PostDTO.convertToEntity(postDTO));
+    }
 }

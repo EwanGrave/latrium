@@ -4,9 +4,7 @@ import com.example.latriumback.dto.post.PostDTO;
 import com.example.latriumback.dto.post.PostWithCommentsDTO;
 import com.example.latriumback.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,5 +21,10 @@ public class PostController {
     @GetMapping("/api/posts/{postId}")
     public PostWithCommentsDTO getPostById(@PathVariable Long postId) {
         return postService.findPostById(postId);
+    }
+
+    @PostMapping("/api/post")
+    public void savePost(@RequestBody PostDTO post) {
+        postService.savePost(post);
     }
 }

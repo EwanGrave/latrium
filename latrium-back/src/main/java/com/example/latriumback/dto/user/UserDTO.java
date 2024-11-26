@@ -16,6 +16,10 @@ public class UserDTO {
         return new UserDTO(user.getUsername(), user.getRole());
     }
 
+    public static User convertToEntity(UserDTO user) {
+        return new User(user.getUsername(), user.getRole());
+    }
+
     public String getUsername() {
         return username;
     }

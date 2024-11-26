@@ -36,6 +36,17 @@ public class PostDTO extends PostWithoutBoardDTO {
         );
     }
 
+    public static Post convertToEntity(PostDTO post) {
+        return new Post(
+                post.getScore(),
+                post.getTitle(),
+                post.getContent(),
+                post.getCreatedAt(),
+                UserDTO.convertToEntity(post.getUser()),
+                BoardDTO.convertToEntity(post.getBoard())
+        );
+    }
+
     public BoardDTO getBoard() {
         return board;
     }

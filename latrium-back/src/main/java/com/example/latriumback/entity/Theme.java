@@ -31,4 +31,8 @@ public class Theme {
     public String getName() {
         return name;
     }
+
+    public Set<Theme> getSubThemes() {
+        return subThemes;
+    }
 }

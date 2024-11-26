@@ -7,11 +7,11 @@ import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class BoardWithPostsDTO extends BoardDTO{
+public class BoardWithPostsDTO extends BoardDTO {
     private List<PostWithoutBoardDTO> posts;
 
-    public BoardWithPostsDTO(Long idBoard, String name, String description, Date createdAt, List<PostWithoutBoardDTO> posts) {
-        super(idBoard, name, description, createdAt);
+    public BoardWithPostsDTO(Long idBoard, String name, String description, Date createdAt , List<ThemeDTO> themes, List<PostWithoutBoardDTO> posts) {
+        super(idBoard, name, description, createdAt, themes);
         this.posts = posts;
     }
 
@@ -21,6 +21,7 @@ public class BoardWithPostsDTO extends BoardDTO{
                 board.getName(),
                 board.getDescription(),
                 board.getCreatedAt(),
+                board.getThemes().stream().map(ThemeDTO::convertToDTO).collect(Collectors.toList()),
                 board.getPosts().stream().map(PostWithoutBoardDTO::convertToDTO).collect(Collectors.toList())
         );
     }

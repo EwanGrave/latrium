@@ -1,7 +1,6 @@
 package com.example.latriumback.service;
 
 import com.example.latriumback.dto.post.PostDTO;
-import com.example.latriumback.dto.post.PostWithCommentsDTO;
 import com.example.latriumback.entity.Post;
 import com.example.latriumback.repository.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,9 +19,9 @@ public class PostService {
         return posts.stream().map(PostDTO::convertToDTO).collect(Collectors.toList());
     }
 
-    public PostWithCommentsDTO findPostById(Long id) {
+    public PostDTO findPostById(Long id) {
         Post post = postRepository.findPostByIdPost(id);
-        return PostWithCommentsDTO.convertToDTO(post);
+        return PostDTO.convertToDTO(post);
     }
 
     public void savePost(PostDTO postDTO) {

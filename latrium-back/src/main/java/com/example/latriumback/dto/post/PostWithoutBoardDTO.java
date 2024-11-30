@@ -4,6 +4,8 @@ import com.example.latriumback.dto.user.UserDTO;
 import com.example.latriumback.entity.Post;
 
 import java.util.Date;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class PostWithoutBoardDTO {
     private Long idPost;
@@ -13,6 +15,7 @@ public class PostWithoutBoardDTO {
     private Date createdAt;
     private Date updatedAt;
     private UserDTO user;
+    private List<CommentDTO> comments;
 
     public PostWithoutBoardDTO(
             Long idPost,
@@ -21,7 +24,8 @@ public class PostWithoutBoardDTO {
             String content,
             Date createdAt,
             Date updatedAt,
-            UserDTO user)
+            UserDTO user,
+            List<CommentDTO> comments)
     {
         this.idPost = idPost;
         this.score = score;
@@ -30,6 +34,7 @@ public class PostWithoutBoardDTO {
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
         this.user = user;
+        this.comments = comments;
     }
 
     public static PostWithoutBoardDTO convertToDTO(Post post) {
@@ -40,7 +45,8 @@ public class PostWithoutBoardDTO {
                 post.getContent(),
                 post.getCreatedAt(),
                 post.getUpdatedAt(),
-                UserDTO.convertToDTO(post.getUser())
+                UserDTO.convertToDTO(post.getUser()),
+                post.getComments().stream().map(CommentDTO::convertToDTO).collect(Collectors.toList())
         );
     }
 
@@ -70,5 +76,9 @@ public class PostWithoutBoardDTO {
 
     public Long getIdPost() {
         return idPost;
+    }
+
+    public List<CommentDTO> getComments() {
+        return comments;
     }
 }

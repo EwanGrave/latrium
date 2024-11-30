@@ -5,6 +5,8 @@ import com.example.latriumback.dto.user.UserDTO;
 import com.example.latriumback.entity.Post;
 
 import java.util.Date;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class PostDTO extends PostWithoutBoardDTO {
     private BoardDTO board;
@@ -17,9 +19,10 @@ public class PostDTO extends PostWithoutBoardDTO {
             Date createdAt,
             Date updatedAt,
             UserDTO user,
+            List<CommentDTO> comments,
             BoardDTO board
     ) {
-        super(idPost, score, title, content, createdAt, updatedAt, user);
+        super(idPost, score, title, content, createdAt, updatedAt, user, comments);
         this.board = board;
     }
 
@@ -32,6 +35,7 @@ public class PostDTO extends PostWithoutBoardDTO {
                 post.getCreatedAt(),
                 post.getUpdatedAt(),
                 UserDTO.convertToDTO(post.getUser()),
+                post.getComments().stream().map(CommentDTO::convertToDTO).collect(Collectors.toList()),
                 BoardDTO.convertToDTO(post.getBoard())
         );
     }

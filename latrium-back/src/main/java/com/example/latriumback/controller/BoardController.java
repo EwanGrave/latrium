@@ -1,6 +1,7 @@
 package com.example.latriumback.controller;
 
 import com.example.latriumback.dto.board.BoardDTO;
+import com.example.latriumback.dto.board.BoardWithPostsDTO;
 import com.example.latriumback.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -11,7 +12,7 @@ public class BoardController {
     private BoardService boardService;
 
     @GetMapping("/api/board/{name}")
-    public BoardDTO getBoardByName(@PathVariable String name) {
+    public BoardWithPostsDTO getBoardByName(@PathVariable String name) {
         return boardService.findBoardById(name);
     }
 

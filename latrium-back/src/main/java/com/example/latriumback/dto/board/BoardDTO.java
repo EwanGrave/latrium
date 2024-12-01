@@ -1,6 +1,5 @@
 package com.example.latriumback.dto.board;
 
-import com.example.latriumback.dto.post.PostWithoutBoardDTO;
 import com.example.latriumback.entity.Board;
 
 import java.util.Date;
@@ -13,22 +12,19 @@ public class BoardDTO {
     private String description;
     private Date createdAt;
     private List<ThemeDTO> themes;
-    private List<PostWithoutBoardDTO> posts;
 
     public BoardDTO(
             Long idBoard,
             String name,
             String description,
             Date createdAt,
-            List<ThemeDTO> themes,
-            List<PostWithoutBoardDTO> posts
+            List<ThemeDTO> themes
     ) {
         this.idBoard = idBoard;
         this.name = name;
         this.description = description;
         this.createdAt = createdAt;
         this.themes = themes;
-        this.posts = posts;
     }
 
     public static BoardDTO convertToDTO(Board board) {
@@ -37,8 +33,7 @@ public class BoardDTO {
                 board.getName(),
                 board.getDescription(),
                 board.getCreatedAt(),
-                board.getThemes().stream().map(ThemeDTO::convertToDTO).collect(Collectors.toList()),
-                board.getPosts().stream().map(PostWithoutBoardDTO::convertToDTO).collect(Collectors.toList())
+                board.getThemes().stream().map(ThemeDTO::convertToDTO).collect(Collectors.toList())
         );
     }
 
@@ -64,9 +59,5 @@ public class BoardDTO {
 
     public List<ThemeDTO> getThemes() {
         return themes;
-    }
-
-    public List<PostWithoutBoardDTO> getPosts() {
-        return posts;
     }
 }

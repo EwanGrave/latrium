@@ -3,11 +3,13 @@ package com.example.latriumback.controller;
 import com.example.latriumback.dto.post.PostDTO;
 import com.example.latriumback.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@RequestMapping(value = "/", produces = MediaType.APPLICATION_JSON_VALUE)
 public class PostController {
     @Autowired
     private PostService postService;

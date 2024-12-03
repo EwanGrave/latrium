@@ -1,13 +1,6 @@
 <div id="homepage-content">
+  @for (post of posts; track $index) {
   <mat-divider></mat-divider>
-  <app-postitem></app-postitem>
-  <mat-divider></mat-divider>
-  <app-postitem></app-postitem>
-  <mat-divider></mat-divider>
-  <app-postitem></app-postitem>
-  <mat-divider></mat-divider>
-  <app-postitem></app-postitem>
-  <mat-divider></mat-divider>
-  <app-postitem></app-postitem>
-  <mat-divider></mat-divider>
+  <app-postitem [post]="post" />
+  }
 </div>

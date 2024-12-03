@@ -4,9 +4,11 @@ import com.example.latriumback.dto.board.BoardDTO;
 import com.example.latriumback.dto.board.BoardWithPostsDTO;
 import com.example.latriumback.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping(value = "/", produces = MediaType.APPLICATION_JSON_VALUE)
 public class BoardController {
     @Autowired
     private BoardService boardService;

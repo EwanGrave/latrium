@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "openapi": "node scripts/fetch_spec.mjs && node scripts/gen.mjs"
+    "openapi": "node scripts/fetch_spec.mjs && node scripts/gen.mjs && tsx scripts/fix_models.ts"
   },
   "private": true,
   "dependencies": {
@@ -23,6 +23,7 @@
     "@angular/router": "^19.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
+    "tsx": "^4.19.2",
     "zone.js": "~0.15.0"
   },
   "devDependencies": {

@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { RegisterComponent } from '../dialogs/register/register.component';
+import { LoginComponent } from '../dialogs/login/login.component';
 
 @Component({
   selector: 'app-header',
@@ -10,9 +11,13 @@ import { RegisterComponent } from '../dialogs/register/register.component';
   styleUrl: './header.component.css',
 })
 export class HeaderComponent {
-  readonly registerDialog = inject(MatDialog);
+  readonly dialog = inject(MatDialog);
 
   openRegisterDialog() {
-    this.registerDialog.open(RegisterComponent);
+    this.dialog.open(RegisterComponent);
+  }
+
+  openLoginDialog() {
+    this.dialog.open(LoginComponent);
   }
 }

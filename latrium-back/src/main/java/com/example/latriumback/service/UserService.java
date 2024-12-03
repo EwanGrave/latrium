@@ -1,6 +1,7 @@
 package com.example.latriumback.service;
 
 import com.example.latriumback.dto.user.UserDTO;
+import com.example.latriumback.dto.user.UserWithPasswordDTO;
 import com.example.latriumback.entity.User;
 import com.example.latriumback.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,11 +14,10 @@ public class UserService {
 
     public UserDTO findByUsername(String username) {
         User user = userRepository.findByUsername(username);
-        return convertToDTO(user);
+        return UserDTO.convertToDTO(user);
     }
 
-    private UserDTO convertToDTO(User user) {
-        if (user == null) return null;
-        return new UserDTO(user.getUsername(), user.getRole());
+    public void saveUser(UserWithPasswordDTO user) {
+        userRepository.save(UserWithPasswordDTO.convertToEntity(user));
     }
 }

@@ -1,13 +1,15 @@
 package com.example.latriumback.controller;
 
 import com.example.latriumback.dto.user.UserDTO;
+import com.example.latriumback.dto.user.UserWithPasswordDTO;
 import com.example.latriumback.service.UserService;
+import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping(value = "/", produces = MediaType.APPLICATION_JSON_VALUE)
 public class UserController {
     @Autowired
     private UserService userService;
@@ -15,5 +17,10 @@ public class UserController {
     @GetMapping("/api/users/{name}")
     public UserDTO getUserByUsername(@PathVariable String name)  {
         return userService.findByUsername(name);
+    }
+
+    @PostMapping("/api/register")
+    public void registerUser(@RequestBody UserWithPasswordDTO user) {
+        userService.saveUser(user);
     }
 }

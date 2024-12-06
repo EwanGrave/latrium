@@ -18,4 +18,8 @@ public class UserWithPasswordDTO extends UserDTO {
     public static UserWithPasswordDTO convertToDTO(User user) {
         return new UserWithPasswordDTO(user.getUsername(), user.getRole(), user.getPassword());
     }
+
+    public static User convertToEntity(UserWithPasswordDTO user) {
+        return new User(user.getUsername(), user.getPassword(), user.getRole());
+    }
 }

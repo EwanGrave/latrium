@@ -49,13 +49,12 @@ export class RegisterComponent {
       const user: UserWithPasswordDTO = {
         username: this.registerForm.value.username ?? '',
         password: shaEncrypt(this.registerForm.value.password ?? '', 'sha256'),
+        role: 'USER',
       };
       this.userService
-        .registerUser({
-          username: 'test',
-          password: 'oui',
-        })
-        .subscribe();
+        .registerUser(user)
+        .subscribe((data) => console.log(data));
+      window.location.reload();
     }
   }
 }

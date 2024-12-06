@@ -23,7 +23,9 @@
 
       <mat-dialog-actions align="start">
         <button mat-button mat-dialog-close>Annuler</button>
-        <button type="submit" mat-flat-button>Valider</button>
+        <button type="submit" mat-flat-button [disabled]="registerForm.invalid">
+          Valider
+        </button>
       </mat-dialog-actions>
     </form>
   </mat-dialog-content>

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
@@ -9,6 +9,8 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { UserControllerService, UserWithPasswordDTO } from '../../../../../api';
+import { shaEncrypt } from '../../../utils/StringUtils';
 
 @Component({
   selector: 'app-register',
@@ -24,6 +26,8 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RegisterComponent {
+  userService = inject(UserControllerService);
+
   registerForm = new FormGroup({
     username: new FormControl<string>('', [Validators.required]),
     password: new FormControl<string>('', [
@@ -42,7 +46,16 @@ export class RegisterComponent {
       this.registerForm.value.password ===
         this.registerForm.value.confirmPassword
     ) {
-      console.error('TODO: register api request');
+      const user: UserWithPasswordDTO = {
+        username: this.registerForm.value.username ?? '',
+        password: shaEncrypt(this.registerForm.value.password ?? '', 'sha256'),
+      };
+      this.userService
+        .registerUser({
+          username: 'test',
+          password: 'oui',
+        })
+        .subscribe();
     }
   }
 }

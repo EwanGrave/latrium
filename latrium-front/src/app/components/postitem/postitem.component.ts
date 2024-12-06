@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { RouterLink } from '@angular/router';
-import { PostDto } from '../../../../api/generate/models';
+import { PostDTO } from '../../../../api';
 
 @Component({
   selector: 'app-postitem',
@@ -11,5 +11,5 @@ import { PostDto } from '../../../../api/generate/models';
   styleUrl: './postitem.component.css',
 })
 export class PostitemComponent {
-  @Input() post!: PostDto;
+  @Input() post!: PostDTO;
 }

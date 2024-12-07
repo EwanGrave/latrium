@@ -3,6 +3,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { RegisterComponent } from '../dialogs/register/register.component';
 import { LoginComponent } from '../dialogs/login/login.component';
+import { LoginService } from '../../services/login.service';
 
 @Component({
   selector: 'app-header',
@@ -12,6 +13,8 @@ import { LoginComponent } from '../dialogs/login/login.component';
 })
 export class HeaderComponent {
   readonly dialog = inject(MatDialog);
+  loginService = inject(LoginService);
+  isLogged: boolean = this.loginService.isLoggedIn();
 
   openRegisterDialog() {
     this.dialog.open(RegisterComponent);
@@ -19,5 +22,9 @@ export class HeaderComponent {
 
   openLoginDialog() {
     this.dialog.open(LoginComponent);
+  }
+
+  logout(): void {
+    this.loginService.logout();
   }
 }

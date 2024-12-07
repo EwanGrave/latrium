@@ -8,7 +8,11 @@
   </form>
 
   <div class="header-links">
+    @if (isLogged) {
+    <button mat-raised-button (click)="logout()">Se déconnecter</button>
+    } @else {
     <button mat-raised-button (click)="openLoginDialog()">Se connecter</button>
     <button mat-flat-button (click)="openRegisterDialog()">S'inscrire</button>
+    }
   </div>
 </div>

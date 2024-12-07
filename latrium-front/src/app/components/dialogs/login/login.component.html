@@ -12,6 +12,10 @@
         <input matInput type="password" formControlName="password" />
       </mat-form-field>
 
+      @if (isError) {
+      <div class="error-msg">Indentifiants incorrects !</div>
+      }
+
       <mat-dialog-actions align="start">
         <button mat-button mat-dialog-close>Annuler</button>
         <button type="submit" mat-flat-button>Valider</button>

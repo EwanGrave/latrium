@@ -6,3 +6,7 @@
 #login-dialog {
   width: 500px;
 }
+
+.error-msg {
+  color: rgb(199, 0, 0);
+}

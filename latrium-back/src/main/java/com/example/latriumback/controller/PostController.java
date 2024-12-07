@@ -9,22 +9,22 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(value = "/api/post", produces = MediaType.APPLICATION_JSON_VALUE)
 public class PostController {
     @Autowired
     private PostService postService;
 
-    @GetMapping("/api/posts")
+    @GetMapping("/all")
     public List<PostDTO> getAllPosts() {
         return postService.findAll();
     }
 
-    @GetMapping("/api/posts/{postId}")
+    @GetMapping("/{postId}")
     public PostDTO getPostById(@PathVariable Long postId) {
         return postService.findPostById(postId);
     }
 
-    @PostMapping("/api/post")
+    @PostMapping("/")
     public void savePost(@RequestBody PostDTO post) {
         postService.savePost(post);
     }

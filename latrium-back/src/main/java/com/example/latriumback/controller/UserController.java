@@ -1,6 +1,7 @@
 package com.example.latriumback.controller;
 
-import com.example.latriumback.dto.user.UserDTO;
+import com.example.latriumback.dto.user.CredentialsDTO;
+import com.example.latriumback.dto.user.LoginUserDTO;
 import com.example.latriumback.dto.user.UserWithPasswordDTO;
 import com.example.latriumback.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,12 +16,12 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @GetMapping("/{name}")
-    public UserDTO getUserByUsername(@PathVariable String name)  {
-        return userService.findByUsername(name);
+    @PostMapping("/login")
+    public LoginUserDTO getUserFromCredentials(@RequestBody CredentialsDTO credentials)  {
+        return userService.getUserFromCredentials(credentials);
     }
 
-    @PostMapping(value = "/register")
+    @PostMapping("/register")
     public ResponseEntity registerUser(@RequestBody UserWithPasswordDTO user) {
         userService.saveUser(user);
         return new ResponseEntity(HttpStatus.OK);

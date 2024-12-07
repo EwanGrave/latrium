@@ -1,5 +1,7 @@
 package com.example.latriumback.service;
 
+import com.example.latriumback.dto.user.CredentialsDTO;
+import com.example.latriumback.dto.user.LoginUserDTO;
 import com.example.latriumback.dto.user.UserDTO;
 import com.example.latriumback.dto.user.UserWithPasswordDTO;
 import com.example.latriumback.entity.User;
@@ -12,9 +14,10 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    public UserDTO findByUsername(String username) {
-        User user = userRepository.findByUsername(username);
-        return UserDTO.convertToDTO(user);
+    public LoginUserDTO getUserFromCredentials(CredentialsDTO credentials) {
+        User user = userRepository.findByUsernameAndPassword(credentials.getUsername(), credentials.getPassword());
+        boolean success = user != null;
+        return new LoginUserDTO(success, success ? UserDTO.convertToDTO(user) : new UserDTO());
     }
 
     public void saveUser(UserWithPasswordDTO user) {

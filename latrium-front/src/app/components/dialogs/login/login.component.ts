@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import {
   FormGroup,
   FormControl,
@@ -9,6 +9,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { LoginService } from '../../../services/login.service';
+import { shaEncrypt } from '../../../utils/StringUtils';
 
 @Component({
   selector: 'app-login',
@@ -23,6 +25,9 @@ import { MatInputModule } from '@angular/material/input';
   styleUrl: './login.component.css',
 })
 export class LoginComponent {
+  loginService = inject(LoginService);
+  isError: boolean = false;
+
   loginForm = new FormGroup({
     username: new FormControl<string>('', [Validators.required]),
     password: new FormControl<string>('', [
@@ -33,7 +38,12 @@ export class LoginComponent {
 
   login(): void {
     if (this.loginForm.valid) {
-      console.error('TODO: login api request');
+      this.loginService
+        .login({
+          username: this.loginForm.value.username ?? '',
+          password: shaEncrypt(this.loginForm.value.password ?? '', 'sha256'),
+        })
+        .then((res) => (this.isError = !res));
     }
   }
 }

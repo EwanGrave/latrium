@@ -12,6 +12,9 @@ public class UserDTO {
         this.role = role;
     }
 
+    public UserDTO() {
+    }
+
     public static UserDTO convertToDTO(User user) {
         return new UserDTO(user.getUsername(), user.getRole());
     }

@@ -18,4 +18,8 @@ public class ThemeService {
         List<Theme> themes = themeRepository.findAll();
         return themes.stream().map(ThemeDTO::convertToDTO).collect(Collectors.toList());
     }
+
+    public void saveTheme(ThemeDTO theme) {
+        themeRepository.save(ThemeDTO.convertToEntity(theme));
+    }
 }

@@ -4,9 +4,7 @@ import com.example.latriumback.dto.board.ThemeDTO;
 import com.example.latriumback.service.ThemeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -19,5 +17,10 @@ public class ThemeController {
     @GetMapping("/all")
     public List<ThemeDTO> getAllThemes() {
         return themeService.getAllThemes();
+    }
+
+    @PostMapping("")
+    public void saveTheme(@RequestBody ThemeDTO theme) {
+        themeService.saveTheme(theme);
     }
 }

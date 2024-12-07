@@ -11,6 +11,8 @@ public class Theme {
     @Column(name = "id_theme")
     private Long idTheme;
     private String name;
+    @Column(name = "icon_svg")
+    private String iconSvg;
 
     @ManyToMany(mappedBy = "themes")
     private Set<Board> boards;
@@ -19,10 +21,15 @@ public class Theme {
     private Set<Theme> subThemes;
 
     @ManyToOne
-    @JoinColumn(name="id_subtheme", nullable=false)
+    @JoinColumn(name="id_subtheme")
     private Theme parentTheme;
 
     public Theme() {}
+
+    public Theme(String name, String iconSvg) {
+        this.name = name;
+        this.iconSvg = iconSvg;
+    }
 
     public Long getIdTheme() {
         return idTheme;
@@ -34,5 +41,9 @@ public class Theme {
 
     public Set<Theme> getSubThemes() {
         return subThemes;
+    }
+
+    public String getIconSvg() {
+        return iconSvg;
     }
 }

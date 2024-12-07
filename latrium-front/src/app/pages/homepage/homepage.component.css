@@ -3,3 +3,8 @@
   margin-right: 75px;
   z-index: 1;
 }
+
+.text-empty {
+  padding-top: 50px;
+  text-align: center;
+}

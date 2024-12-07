@@ -18,11 +18,9 @@ input {
   border: 0px;
   font-size: 15px;
   background-color: rgb(230, 230, 230);
-  transition: 0.5s;
 }
 
 input:focus {
-  transition: 0.5s;
   outline: none;
   border: 0.5px solid rgb(110, 110, 110);
   background-color: rgb(240, 240, 240);

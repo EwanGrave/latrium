@@ -8,7 +8,7 @@ export const routes: Routes = [
     component: HomepageComponent,
   },
   {
-    path: 'board/:name',
+    path: 'a/:name',
     component: BoardpageComponent,
   },
 ];

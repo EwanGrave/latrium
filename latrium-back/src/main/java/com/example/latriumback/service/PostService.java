@@ -25,6 +25,7 @@ public class PostService {
     }
 
     public void savePost(PostDTO postDTO) {
-        postRepository.save(PostDTO.convertToEntity(postDTO));
+        Post post = PostDTO.convertToEntity(postDTO);
+        postRepository.save(post);
     }
 }

@@ -36,11 +36,12 @@ public class Board {
 
     public Board() {}
 
-    public Board(Date createdAt, String description, String name, Set<Theme> themes) {
+    public Board(Long idBoard, Date createdAt, String description, String name, Set<Theme> themes) {
         this.createdAt = createdAt;
         this.description = description;
         this.name = name;
         this.themes = themes;
+        this.idBoard = idBoard;
     }
 
     public Long getIdBoard() {

@@ -6,8 +6,8 @@ import com.example.latriumback.utils.UserRole;
 public class UserWithPasswordDTO extends UserDTO {
     private String password;
 
-    public UserWithPasswordDTO(String username, UserRole role, String password) {
-        super(username, role);
+    public UserWithPasswordDTO(Long idUser, String username, UserRole role, String password) {
+        super(idUser, username, role);
         this.password = password;
     }
 
@@ -16,7 +16,7 @@ public class UserWithPasswordDTO extends UserDTO {
     }
 
     public static UserWithPasswordDTO convertToDTO(User user) {
-        return new UserWithPasswordDTO(user.getUsername(), user.getRole(), user.getPassword());
+        return new UserWithPasswordDTO(user.getIdUser(), user.getUsername(), user.getRole(), user.getPassword());
     }
 
     public static User convertToEntity(UserWithPasswordDTO user) {

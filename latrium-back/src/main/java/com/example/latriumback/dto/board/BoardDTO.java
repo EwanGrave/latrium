@@ -39,6 +39,7 @@ public class BoardDTO {
 
     public static Board convertToEntity(BoardDTO boardDTO) {
         return new Board(
+                boardDTO.getIdBoard(),
                 boardDTO.createdAt,
                 boardDTO.description,
                 boardDTO.name,

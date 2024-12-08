@@ -30,16 +30,16 @@ public class Post {
     @OneToMany(mappedBy = "post")
     private Set<Comment> comments;
 
-    public Post() {
-    }
+    public Post() {}
 
-    public Post(String score, String title, String content, Date createdAt, User user, Board board) {
+    public Post(Long idPost, String score, String title, String content, Date createdAt, User user, Board board) {
         this.score = score;
         this.title = title;
         this.content = content;
         this.createdAt = createdAt;
         this.user = user;
         this.board = board;
+        this.idPost = idPost;
     }
 
     public String getScore() {

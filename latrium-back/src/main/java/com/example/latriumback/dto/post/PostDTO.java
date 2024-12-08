@@ -42,6 +42,7 @@ public class PostDTO extends PostWithoutBoardDTO {
 
     public static Post convertToEntity(PostDTO post) {
         return new Post(
+                post.getIdPost(),
                 post.getScore(),
                 post.getTitle(),
                 post.getContent(),

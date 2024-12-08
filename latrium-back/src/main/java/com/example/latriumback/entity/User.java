@@ -28,7 +28,8 @@ public class User {
 
     public User() {}
 
-    public User(String username, UserRole role) {
+    public User(Long idUser, String username, UserRole role) {
+        this.idUser = idUser;
         this.username = username;
         this.role = role;
     }

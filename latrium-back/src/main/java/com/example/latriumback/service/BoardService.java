@@ -18,6 +18,7 @@ public class BoardService {
     }
 
     public void saveBoard(BoardDTO boardDTO) {
-        boardRepository.save(BoardDTO.convertToEntity(boardDTO));
+        Board board = BoardDTO.convertToEntity(boardDTO);
+        boardRepository.save(board);
     }
 }

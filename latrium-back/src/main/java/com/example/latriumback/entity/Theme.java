@@ -26,7 +26,8 @@ public class Theme {
 
     public Theme() {}
 
-    public Theme(String name, String iconSvg) {
+    public Theme(Long idTheme, String name, String iconSvg) {
+        this.idTheme = idTheme;
         this.name = name;
         this.iconSvg = iconSvg;
     }

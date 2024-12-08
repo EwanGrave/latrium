@@ -44,6 +44,6 @@ public class ThemeDTO {
     }
 
     public static Theme convertToEntity(ThemeDTO theme) {
-        return new Theme(theme.getName(), theme.getIconSvg());
+        return new Theme(theme.getIdTheme(), theme.getName(), theme.getIconSvg());
     }
 }

@@ -24,7 +24,7 @@ public class PostController {
         return postService.findPostById(postId);
     }
 
-    @PostMapping("/")
+    @PostMapping("")
     public void savePost(@RequestBody PostDTO post) {
         postService.savePost(post);
     }

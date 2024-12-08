@@ -38,7 +38,12 @@ public class BoardDTO {
     }
 
     public static Board convertToEntity(BoardDTO boardDTO) {
-        return new Board(boardDTO.createdAt, boardDTO.description, boardDTO.name);
+        return new Board(
+                boardDTO.createdAt,
+                boardDTO.description,
+                boardDTO.name,
+                boardDTO.getThemes().stream().map(ThemeDTO::convertToEntity).collect(Collectors.toSet())
+        );
     }
 
     public String getName() {

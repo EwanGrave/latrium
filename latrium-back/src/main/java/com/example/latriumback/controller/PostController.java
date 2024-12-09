@@ -1,5 +1,6 @@
 package com.example.latriumback.controller;
 
+import com.example.latriumback.dto.post.CommentDTO;
 import com.example.latriumback.dto.post.PostDTO;
 import com.example.latriumback.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,8 +25,13 @@ public class PostController {
         return postService.findPostById(postId);
     }
 
-    @PostMapping("")
+    @PutMapping("")
     public void savePost(@RequestBody PostDTO post) {
         postService.savePost(post);
+    }
+
+    @PutMapping("/comment")
+    public void addComment(@RequestBody CommentDTO comment) {
+        postService.addComment(comment);
     }
 }

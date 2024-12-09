@@ -26,6 +26,15 @@ public class Comment {
 
     public Comment() {}
 
+    public Comment(Long idComment, String content, Date createdAt, Date updatedAt, User user, Post post) {
+        this.idComment = idComment;
+        this.content = content;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+        this.user = user;
+        this.post = post;
+    }
+
     public Long getIdComment() {
         return idComment;
     }
@@ -40,5 +49,13 @@ public class Comment {
 
     public Date getUpdatedAt() {
         return updatedAt;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public Post getPost() {
+        return post;
     }
 }

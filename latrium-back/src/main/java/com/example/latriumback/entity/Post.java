@@ -77,4 +77,8 @@ public class Post {
     public Set<Comment> getComments() {
         return comments;
     }
+
+    public void addComment(Comment comment) {
+        comments.add(comment);
+    }
 }

@@ -25,13 +25,13 @@ public class PostController {
         return postService.findPostById(postId);
     }
 
-    @PutMapping("")
-    public void savePost(@RequestBody PostDTO post) {
-        postService.savePost(post);
+    @PostMapping("/create")
+    public void createPost(@RequestBody PostDTO post) {
+        postService.createPost(post);
     }
 
-    @PutMapping("/comment")
-    public void addComment(@RequestBody CommentDTO comment) {
-        postService.addComment(comment);
+    @PostMapping("/comment/create")
+    public void createComment(@RequestBody CommentDTO comment) {
+        postService.createComment(comment);
     }
 }

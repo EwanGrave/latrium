@@ -71,4 +71,8 @@ public class Board {
     public Set<Theme> getThemes() {
         return themes;
     }
+
+    public void addUsers(User user) {
+        users.add(user);
+    }
 }

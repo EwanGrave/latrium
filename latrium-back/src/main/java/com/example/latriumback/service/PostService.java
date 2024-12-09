@@ -30,12 +30,12 @@ public class PostService {
         return PostDTO.convertToDTO(post);
     }
 
-    public void savePost(PostDTO postDTO) {
+    public void createPost(PostDTO postDTO) {
         Post post = PostDTO.convertToEntity(postDTO);
         postRepository.save(post);
     }
 
-    public void addComment(CommentDTO comment) {
+    public void createComment(CommentDTO comment) {
         commentRepository.save(CommentDTO.convertToEntity(comment));
     }
 }

@@ -19,7 +19,7 @@ public class PostDTO extends PostWithoutBoardDTO {
             Date createdAt,
             Date updatedAt,
             UserDTO user,
-            List<CommentDTO> comments,
+            List<CommentWithoutPostDTO> comments,
             BoardDTO board
     ) {
         super(idPost, score, title, content, createdAt, updatedAt, user, comments);
@@ -35,7 +35,7 @@ public class PostDTO extends PostWithoutBoardDTO {
                 post.getCreatedAt(),
                 post.getUpdatedAt(),
                 UserDTO.convertToDTO(post.getUser()),
-                post.getComments().stream().map(CommentDTO::convertToDTO).collect(Collectors.toList()),
+                post.getComments().stream().map(CommentWithoutPostDTO::convertToDTO).collect(Collectors.toList()),
                 BoardDTO.convertToDTO(post.getBoard())
         );
     }

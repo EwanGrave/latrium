@@ -15,7 +15,7 @@ public class PostWithoutBoardDTO {
     private Date createdAt;
     private Date updatedAt;
     private UserDTO user;
-    private List<CommentDTO> comments;
+    private List<CommentWithoutPostDTO> comments;
 
     public PostWithoutBoardDTO(
             Long idPost,
@@ -25,7 +25,7 @@ public class PostWithoutBoardDTO {
             Date createdAt,
             Date updatedAt,
             UserDTO user,
-            List<CommentDTO> comments)
+            List<CommentWithoutPostDTO> comments)
     {
         this.idPost = idPost;
         this.score = score;
@@ -46,7 +46,7 @@ public class PostWithoutBoardDTO {
                 post.getCreatedAt(),
                 post.getUpdatedAt(),
                 UserDTO.convertToDTO(post.getUser()),
-                post.getComments().stream().map(CommentDTO::convertToDTO).collect(Collectors.toList())
+                post.getComments().stream().map(CommentWithoutPostDTO::convertToDTO).collect(Collectors.toList())
         );
     }
 
@@ -78,7 +78,7 @@ public class PostWithoutBoardDTO {
         return idPost;
     }
 
-    public List<CommentDTO> getComments() {
+    public List<CommentWithoutPostDTO> getComments() {
         return comments;
     }
 }

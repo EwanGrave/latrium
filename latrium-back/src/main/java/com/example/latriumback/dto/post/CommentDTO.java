@@ -5,41 +5,12 @@ import com.example.latriumback.entity.Comment;
 
 import java.util.Date;
 
-public class CommentDTO {
-    private Long idComment;
-    private String content;
-    private Date createdAt;
-    private Date updatedAt;
-    private UserDTO user;
+public class CommentDTO extends CommentWithoutPostDTO {
     private PostDTO post;
 
     public CommentDTO(Long idComment, String content, Date createdAt, Date updatedAt, UserDTO user, PostDTO post) {
-        this.idComment = idComment;
-        this.content = content;
-        this.createdAt = createdAt;
-        this.updatedAt = updatedAt;
-        this.user = user;
+        super(idComment, content, createdAt, updatedAt, user);
         this.post = post;
-    }
-
-    public Date getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public Date getCreatedAt() {
-        return createdAt;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public Long getIdComment() {
-        return idComment;
-    }
-
-    public UserDTO getUser() {
-        return user;
     }
 
     public PostDTO getPost() {

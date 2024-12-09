@@ -21,9 +21,13 @@ public class UserController {
         return userService.getUserFromCredentials(credentials);
     }
 
-    @PostMapping("/register")
-    public ResponseEntity registerUser(@RequestBody UserWithPasswordDTO user) {
-        userService.saveUser(user);
-        return new ResponseEntity(HttpStatus.OK);
+    @PostMapping("/create")
+    public ResponseEntity<String> createUser(@RequestBody UserWithPasswordDTO user) {
+        try {
+            userService.createUser(user);
+            return ResponseEntity.status(HttpStatus.CREATED).body("User created");
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error while creating user : " + e.getMessage());
+        }
     }
 }

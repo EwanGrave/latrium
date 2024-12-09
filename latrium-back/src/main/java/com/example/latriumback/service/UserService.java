@@ -20,7 +20,7 @@ public class UserService {
         return new LoginUserDTO(success, success ? UserDTO.convertToDTO(user) : new UserDTO());
     }
 
-    public void saveUser(UserWithPasswordDTO user) {
+    public void createUser(UserWithPasswordDTO user) {
         userRepository.save(UserWithPasswordDTO.convertToEntity(user));
     }
 }

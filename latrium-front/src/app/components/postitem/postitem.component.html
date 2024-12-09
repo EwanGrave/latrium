@@ -18,6 +18,11 @@
     <mat-card-title>{{ post.title }}</mat-card-title>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-button>Voir</button>
+    <button
+      mat-button
+      (click)="router.navigate(['a', post.board?.name, 'post', post.idPost])"
+    >
+      Voir
+    </button>
   </mat-card-actions>
 </mat-card>

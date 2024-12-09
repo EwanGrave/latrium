@@ -51,9 +51,7 @@ export class RegisterComponent {
         password: shaEncrypt(this.registerForm.value.password ?? '', 'sha256'),
         role: 'USER',
       };
-      this.userService
-        .registerUser(user)
-        .subscribe((data) => console.log(data));
+      this.userService.createUser(user).subscribe((data) => console.log(data));
       window.location.reload();
     }
   }

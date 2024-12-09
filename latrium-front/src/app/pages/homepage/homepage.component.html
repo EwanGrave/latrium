@@ -1,7 +1,7 @@
 <div id="homepage-content">
   @for (post of posts; track $index) {
   <mat-divider></mat-divider>
-  <app-postitem [post]="post" />
+  <app-postitem [post]="post" display="Board" />
   }@empty {
   <div class="text-empty">Aucun post n'est disponible, revenez plus tard !</div>
   }

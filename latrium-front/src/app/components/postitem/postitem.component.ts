@@ -11,5 +11,6 @@ import { PostDTO } from '../../../../api';
   styleUrl: './postitem.component.css',
 })
 export class PostitemComponent {
-  @Input() post!: PostDTO;
+  @Input({ required: true }) post!: PostDTO;
+  @Input({ required: true }) display!: 'User' | 'Board';
 }

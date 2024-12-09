@@ -2,7 +2,13 @@
   <mat-card-header class="post-header">
     <div>
       <span class="board-name">
-        <a [routerLink]="['a', 'board']">{{ post.board?.name }}</a>
+        @if (display === 'Board') {
+        <a [routerLink]="['a', post.board?.name]">a/{{ post.board?.name }}</a>
+        } @else if (display === 'User') {
+        <a [routerLink]="['u', post.user?.username]">
+          u/{{ post.user?.username }}
+        </a>
+        }
       </span>
       <span> • </span>
       <span>{{ post.createdAt }}</span>

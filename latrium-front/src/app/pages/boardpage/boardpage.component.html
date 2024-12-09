@@ -7,7 +7,7 @@
     <div class="board-posts">
       @for (post of board?.posts; track $index) {
       <mat-divider></mat-divider>
-      <app-postitem [post]="post"></app-postitem>
+      <app-postitem [post]="post" display="User"></app-postitem>
       }
     </div>
 

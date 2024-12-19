@@ -1,1 +1,46 @@
-<p>postpage works!</p>
+<div id="post">
+  <div class="post-infos">
+    <div>
+      <span>a/{{ post?.board?.name }}</span>
+      <span> • </span>
+      <span>Créé le {{ post?.createdAt }}</span>
+    </div>
+    <div>{{ post?.user?.username }}</div>
+  </div>
+
+  <div class="post-title">
+    {{ post?.title }}
+  </div>
+
+  <div class="post-content">
+    {{ post?.content }}
+  </div>
+
+  <form class="new-comment-form">
+    <mat-form-field>
+      <mat-label>Commentaire</mat-label>
+      <textarea matInput></textarea>
+    </mat-form-field>
+
+    <button type="submit" mat-flat-button>Valider</button>
+  </form>
+
+  <div class="post-comments">
+    @for (comment of post?.comments; track $index) {
+    <div class="comment">
+      <div class="comment-infos">
+        <div class="comment-user">
+          {{ comment.user?.username }}
+        </div>
+        <span> • </span>
+        <div class="comment-date">{{ comment.createdAt }}</div>
+      </div>
+      <div class="comment-content">
+        {{ comment.content }}
+      </div>
+    </div>
+    } @empty {
+    <div>Aucun commentaire !</div>
+    }
+  </div>
+</div>

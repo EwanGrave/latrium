@@ -1,0 +1,33 @@
+#post {
+  margin-left: 75px;
+  margin-right: 75px;
+  padding-top: 25px;
+}
+
+.post-infos {
+  display: flex;
+  flex-direction: column;
+}
+
+.post-title {
+  font-size: 25px;
+  font-weight: bold;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.post-content {
+  padding-bottom: 10px;
+}
+
+.comment {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.comment-infos {
+  font-size: 14px;
+  display: flex;
+  flex-direction: line;
+  gap: 5px;
+}

@@ -29,6 +29,11 @@ export class LoginService {
     return !!sessionStorage.getItem(this.USER_DATA_KEY);
   }
 
+  isAdmin(): boolean {
+    const user = this.getLoggedUser();
+    return user ? user.role === 'ADMIN' : false;
+  }
+
   logout(): void {
     this.removeStorageItem(this.USER_DATA_KEY);
     sessionStorage.clear();

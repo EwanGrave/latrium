@@ -8,7 +8,10 @@
   </form>
 
   <div class="header-links">
-    @if (isLogged) {
+    @if (isLogged) { @if (isAdmin) {
+    <button mat-flat-button>Nouveau board</button>
+    }
+    <button mat-flat-button>Nouveau post</button>
     <button mat-raised-button (click)="logout()">Se déconnecter</button>
     } @else {
     <button mat-raised-button (click)="openLoginDialog()">Se connecter</button>

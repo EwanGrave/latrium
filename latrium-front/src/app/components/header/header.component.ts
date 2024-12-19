@@ -15,6 +15,7 @@ export class HeaderComponent {
   readonly dialog = inject(MatDialog);
   loginService = inject(LoginService);
   isLogged: boolean = this.loginService.isLoggedIn();
+  isAdmin: boolean = this.loginService.isAdmin();
 
   openRegisterDialog() {
     this.dialog.open(RegisterComponent);

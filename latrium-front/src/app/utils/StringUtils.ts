@@ -12,3 +12,7 @@ export const DATE_FORMAT: string = 'dd/MM/YYYY à HH:mm';
 export function formatDateFromString(str: string): string {
   return formatDate(new Date(str), DATE_FORMAT, 'fr-FR');
 }
+
+export function getFormattedCurrentDate(): string {
+  return formatDate(new Date(), "yyyy-MM-dd'T'HH:mm:ss.SSS", 'fr-FR');
+}

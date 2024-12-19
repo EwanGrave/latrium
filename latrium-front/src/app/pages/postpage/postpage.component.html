@@ -16,13 +16,16 @@
     {{ post?.content }}
   </div>
 
-  <form class="new-comment-form">
+  <form
+    class="new-comment-form"
+    [formGroup]="commentForm"
+    (ngSubmit)="addComment()"
+  >
     <mat-form-field>
       <mat-label>Commentaire</mat-label>
-      <textarea matInput></textarea>
+      <textarea matInput formControlName="comment"></textarea>
     </mat-form-field>
-
-    <button type="submit" mat-flat-button>Valider</button>
+    <button type="submit" mat-flat-button [disabled]="!user">Commenter</button>
   </form>
 
   <div class="post-comments">

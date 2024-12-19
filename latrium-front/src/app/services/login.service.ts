@@ -20,6 +20,11 @@ export class LoginService {
     sessionStorage.removeItem(key);
   }
 
+  getLoggedUser(): UserDTO | null {
+    const user = localStorage.getItem(this.USER_DATA_KEY);
+    return user ? JSON.parse(user) : null;
+  }
+
   isLoggedIn(): boolean {
     return !!sessionStorage.getItem(this.USER_DATA_KEY);
   }

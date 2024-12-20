@@ -8,7 +8,15 @@ import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class PostDTO extends PostWithoutBoardDTO {
+public class PostDTO {
+    private Long idPost;
+    private String score;
+    private String title;
+    private String content;
+    private Date createdAt;
+    private Date updatedAt;
+    private UserDTO user;
+    private List<CommentWithoutPostDTO> comments;
     private BoardDTO board;
 
     public PostDTO(
@@ -22,7 +30,14 @@ public class PostDTO extends PostWithoutBoardDTO {
             List<CommentWithoutPostDTO> comments,
             BoardDTO board
     ) {
-        super(idPost, score, title, content, createdAt, updatedAt, user, comments);
+        this.idPost = idPost;
+        this.score = score;
+        this.title = title;
+        this.content = content;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+        this.user = user;
+        this.comments = comments;
         this.board = board;
     }
 
@@ -50,6 +65,38 @@ public class PostDTO extends PostWithoutBoardDTO {
                 UserDTO.convertToEntity(post.getUser()),
                 BoardDTO.convertToEntity(post.getBoard())
         );
+    }
+
+    public String getScore() {
+        return score;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+
+    public Date getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public UserDTO getUser() {
+        return user;
+    }
+
+    public Long getIdPost() {
+        return idPost;
+    }
+
+    public List<CommentWithoutPostDTO> getComments() {
+        return comments;
     }
 
     public BoardDTO getBoard() {

@@ -10,6 +10,8 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping(value = "/api/board", produces = MediaType.APPLICATION_JSON_VALUE)
 public class BoardController {
@@ -19,6 +21,11 @@ public class BoardController {
     @GetMapping("/{name}")
     public BoardWithPostsDTO getBoardByName(@PathVariable String name) {
         return boardService.findBoardById(name);
+    }
+
+    @GetMapping("/all")
+    public List<BoardDTO> getAllBoards() {
+        return boardService.getAllBoards();
     }
 
     @PostMapping("/create")

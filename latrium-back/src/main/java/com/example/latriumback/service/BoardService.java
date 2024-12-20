@@ -9,6 +9,9 @@ import com.example.latriumback.repository.BoardRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class BoardService {
     @Autowired
@@ -17,6 +20,11 @@ public class BoardService {
     public BoardWithPostsDTO findBoardById(String name) {
         Board board = boardRepository.findBoardByName(name);
         return BoardWithPostsDTO.convertToDTO(board);
+    }
+
+    public List<BoardDTO> getAllBoards() {
+        List<Board> boards = boardRepository.findAll();
+        return boards.stream().map(BoardDTO::convertToDTO).collect(Collectors.toList());
     }
 
     public void createBoard(BoardDTO boardDTO) {

@@ -33,5 +33,9 @@ export class NewpostComponent implements OnInit {
     boardName: new FormControl<string>('', [Validators.required]),
   });
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.boardService.getAllBoards().subscribe((value) => {
+      this.boards = value;
+    });
+  }
 }

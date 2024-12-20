@@ -1,6 +1,6 @@
 <div id="new-post">
   <div>Nouveau post</div>
-  <form class="register-form" [formGroup]="postForm">
+  <form class="register-form" [formGroup]="postForm" (ngSubmit)="createPost()">
     <mat-form-field>
       <mat-label>Titre</mat-label>
       <input matInput type="text" formControlName="title" />

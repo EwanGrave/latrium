@@ -39,6 +39,7 @@ export class PostpageComponent implements OnInit {
   idPost!: number;
   post!: PostDTO | undefined;
   user: UserDTO | null = this.loginService.getLoggedUser();
+  formatDateFromString = formatDateFromString;
 
   commentForm = new FormGroup({
     comment: new FormControl<string>('', [Validators.required]),

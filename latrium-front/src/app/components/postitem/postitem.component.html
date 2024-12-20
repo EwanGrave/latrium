@@ -11,7 +11,7 @@
         }
       </span>
       <span> • </span>
-      <span>Le {{ formattedDate }}</span>
+      <span>Le {{ formatDateFromString(post.createdAt ?? "") }}</span>
     </div>
   </mat-card-header>
   <mat-card-content class="post-content">

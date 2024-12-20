@@ -14,7 +14,9 @@
     <mat-card appearance="outlined" class="board-info">
       <mat-card-content>
         <div class="board-desc">{{ board?.description }}</div>
-        <div class="board-date">Créé le {{ board?.createdAt }}</div>
+        <div class="board-date">
+          Créé le {{ formatDateFromString(board?.createdAt ?? "") }}
+        </div>
         <div class="board-membre-number">2565 membres</div>
       </mat-card-content>
     </mat-card>

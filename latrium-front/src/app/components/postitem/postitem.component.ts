@@ -1,4 +1,4 @@
-import { Component, inject, Input, OnInit } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { Router, RouterLink } from '@angular/router';
@@ -11,14 +11,9 @@ import { formatDateFromString } from '../../utils/StringUtils';
   templateUrl: './postitem.component.html',
   styleUrl: './postitem.component.css',
 })
-export class PostitemComponent implements OnInit {
+export class PostitemComponent {
   @Input({ required: true }) post!: PostDTO;
   @Input({ required: true }) display!: 'User' | 'Board';
   router = inject(Router);
-
-  formattedDate!: string;
-
-  ngOnInit(): void {
-    this.formattedDate = formatDateFromString(this.post.createdAt ?? '');
-  }
+  formatDateFromString = formatDateFromString;
 }

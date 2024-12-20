@@ -3,7 +3,7 @@
     <div>
       <span>a/{{ post?.board?.name }}</span>
       <span> • </span>
-      <span>Créé le {{ post?.createdAt }}</span>
+      <span>Créé le {{ formatDateFromString(post?.createdAt ?? "") }}</span>
     </div>
     <div>{{ post?.user?.username }}</div>
   </div>

@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { PostitemComponent } from '../../components/postitem/postitem.component';
 import { MatDividerModule } from '@angular/material/divider';
 import { BoardControllerService, BoardWithPostsDTO } from '../../../../api';
+import { formatDateFromString } from '../../utils/StringUtils';
 
 @Component({
   selector: 'app-boardpage',
@@ -16,6 +17,7 @@ export class BoardpageComponent implements OnInit {
   boardService = inject(BoardControllerService);
   board!: BoardWithPostsDTO | undefined;
   name = '';
+  formatDateFromString = formatDateFromString;
 
   ngOnInit() {
     this.route.params.subscribe((params) => {

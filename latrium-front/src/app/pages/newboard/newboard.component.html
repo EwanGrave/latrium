@@ -1,0 +1,31 @@
+<div id="new-board">
+  <div>Nouveau board</div>
+  <form
+    class="new-board-form"
+    [formGroup]="boardForm"
+    (ngSubmit)="createBoard()"
+  >
+    <mat-form-field>
+      <mat-label>Nom</mat-label>
+      <input matInput type="text" formControlName="name" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Description</mat-label>
+      <input matInput type="text" formControlName="description" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Thèmes</mat-label>
+      <mat-select formControlName="boardName" multiple="">
+        @for (theme of themes; track $index) {
+        <mat-option [value]="theme">{{ theme.name }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+
+    <button type="submit" mat-flat-button [disabled]="boardForm.invalid">
+      Valider
+    </button>
+  </form>
+</div>

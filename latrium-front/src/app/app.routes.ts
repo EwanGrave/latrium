@@ -4,6 +4,8 @@ import { BoardpageComponent } from './pages/boardpage/boardpage.component';
 import { PostpageComponent } from './pages/postpage/postpage.component';
 import { NewpostComponent } from './pages/newpost/newpost.component';
 import { LoginGuard } from './guards/Login.guard';
+import { AdminGuard } from './guards/Admin.guard';
+import { NewboardComponent } from './pages/newboard/newboard.component';
 
 export const routes: Routes = [
   {
@@ -22,5 +24,10 @@ export const routes: Routes = [
     path: 'post/new',
     component: NewpostComponent,
     canActivate: [LoginGuard],
+  },
+  {
+    path: 'board/new',
+    component: NewboardComponent,
+    canActivate: [AdminGuard],
   },
 ];

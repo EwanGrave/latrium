@@ -1,11 +1,11 @@
-.new-post-form {
+.new-board-form {
   display: flex;
   flex-direction: column;
   padding-top: 10px;
   gap: 10px;
 }
 
-#new-post {
+#new-board {
   width: 75%;
   margin: auto;
   padding-top: 30px;

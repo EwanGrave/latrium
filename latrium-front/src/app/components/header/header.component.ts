@@ -35,4 +35,8 @@ export class HeaderComponent {
   redirectNewPost(): void {
     this.router.navigate(['post', 'new']);
   }
+
+  redirectNewBoard(): void {
+    this.router.navigate(['board', 'new']);
+  }
 }

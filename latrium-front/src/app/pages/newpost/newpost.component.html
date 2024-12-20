@@ -1,6 +1,6 @@
 <div id="new-post">
   <div>Nouveau post</div>
-  <form class="register-form" [formGroup]="postForm" (ngSubmit)="createPost()">
+  <form class="new-post-form" [formGroup]="postForm" (ngSubmit)="createPost()">
     <mat-form-field>
       <mat-label>Titre</mat-label>
       <input matInput type="text" formControlName="title" />
@@ -8,7 +8,7 @@
 
     <mat-form-field>
       <mat-label>Contenu</mat-label>
-      <textarea matInput type="password" formControlName="content"></textarea>
+      <textarea matInput formControlName="content"></textarea>
     </mat-form-field>
 
     <mat-form-field>

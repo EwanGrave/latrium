@@ -4,6 +4,7 @@ import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { RegisterComponent } from '../dialogs/register/register.component';
 import { LoginComponent } from '../dialogs/login/login.component';
 import { LoginService } from '../../services/login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -14,6 +15,8 @@ import { LoginService } from '../../services/login.service';
 export class HeaderComponent {
   readonly dialog = inject(MatDialog);
   loginService = inject(LoginService);
+  router = inject(Router);
+
   isLogged: boolean = this.loginService.isLoggedIn();
   isAdmin: boolean = this.loginService.isAdmin();
 
@@ -27,5 +30,9 @@ export class HeaderComponent {
 
   logout(): void {
     this.loginService.logout();
+  }
+
+  redirectNewPost(): void {
+    this.router.navigate(['post', 'new']);
   }
 }

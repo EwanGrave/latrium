@@ -1,0 +1,12 @@
+.register-form {
+  display: flex;
+  flex-direction: column;
+  padding-top: 10px;
+  gap: 10px;
+}
+
+#new-post {
+  width: 75%;
+  margin: auto;
+  padding-top: 30px;
+}

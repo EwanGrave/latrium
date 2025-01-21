@@ -39,9 +39,14 @@ export class NewboardComponent implements OnInit {
   themes!: ThemeDTO[];
 
   boardForm = new FormGroup({
-    name: new FormControl<string>('', [Validators.required]),
+    boardName: new FormControl<string>('', [Validators.required]),
     description: new FormControl<string>('', [Validators.required]),
     themes: new FormControl<ThemeDTO[]>([]),
+  });
+
+  themeForm = new FormGroup({
+    themeName: new FormControl<string>('', [Validators.required]),
+    icon: new FormControl(),
   });
 
   ngOnInit(): void {
@@ -54,13 +59,28 @@ export class NewboardComponent implements OnInit {
     const user = this.loginService.getLoggedUser();
     if (this.boardForm.valid && user) {
       const newBoard: BoardDTO = {
-        name: this.boardForm.value.name ?? '',
+        name: this.boardForm.value.boardName ?? '',
         description: this.boardForm.value.description ?? '',
         createdAt: getFormattedCurrentDate(),
         themes: this.boardForm.value.themes ?? [],
       };
 
       this.boardService.createBoard(newBoard).subscribe();
+      this.router.navigateByUrl('/');
+    }
+  }
+
+  createTheme(): void {
+    const user = this.loginService.getLoggedUser();
+    if (this.themeForm.valid && user) {
+      const newTheme: ThemeDTO = {
+        name: this.themeForm.value.themeName ?? '',
+        iconSvg: this.themeForm.value.icon ?? '',
+      };
+
+      console.log(newTheme);
+
+      this.themeService.saveTheme(newTheme).subscribe();
       this.router.navigateByUrl('/');
     }
   }

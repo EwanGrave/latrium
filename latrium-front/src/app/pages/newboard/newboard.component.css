@@ -1,11 +1,17 @@
-.new-board-form {
+.new-board-form,
+.new-theme-form {
   display: flex;
   flex-direction: column;
   padding-top: 10px;
   gap: 10px;
 }
 
-#new-board {
+#new-theme {
+  margin-top: 30px !important;
+}
+
+#new-board,
+#new-theme {
   width: 75%;
   margin: auto;
   padding-top: 30px;

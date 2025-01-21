@@ -7,7 +7,7 @@
   >
     <mat-form-field>
       <mat-label>Nom</mat-label>
-      <input matInput type="text" formControlName="name" />
+      <input matInput type="text" formControlName="boardName" />
     </mat-form-field>
 
     <mat-form-field>
@@ -17,7 +17,7 @@
 
     <mat-form-field>
       <mat-label>Thèmes</mat-label>
-      <mat-select formControlName="boardName" multiple="">
+      <mat-select formControlName="themes" multiple="">
         @for (theme of themes; track $index) {
         <mat-option [value]="theme">{{ theme.name }}</mat-option>
         }
@@ -25,6 +25,26 @@
     </mat-form-field>
 
     <button type="submit" mat-flat-button [disabled]="boardForm.invalid">
+      Valider
+    </button>
+  </form>
+</div>
+
+<div id="new-theme">
+  <div>Nouveau thème</div>
+  <form
+    class="new-theme-form"
+    [formGroup]="themeForm"
+    (ngSubmit)="createTheme()"
+  >
+    <mat-form-field>
+      <mat-label>Nom</mat-label>
+      <input matInput type="text" formControlName="themeName" />
+    </mat-form-field>
+
+    <input type="file" formControlName="icon" accept="image/svg" />
+
+    <button type="submit" mat-flat-button [disabled]="themeForm.invalid">
       Valider
     </button>
   </form>
